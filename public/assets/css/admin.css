@@ -1,0 +1,191 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box ;
+    text-decoration: none !important;
+    list-style-type: none;
+}
+#sidebar-toggle{
+    display: none;
+}
+ #sidebar-toggle:checked~ .sidebar{
+     left: -100%;
+ }
+ ▼#sidebar-toggle:checked~ .container-fluid{
+   left: -100%;
+}
+#sidebar-toggle:checked~ .main-content{
+    margin-left:0;       
+ }
+.sidebar{
+    width: 280px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    padding:1rem;
+    background-color: #301934;
+    color:#fff;
+    z-index: 20;
+    transition: left 300ms;
+}
+.sidebar-main{
+    margin-bottom: 1rem !important;
+    border-bottom: 1px solid white !important;
+}
+.ad{
+    margin-bottom: 1.5rem !important;
+    margin-left: 50px;
+    text-align: center;
+    padding-bottom: 10px !important;
+}
+.sidebar-brand{
+    height: 100px;
+ }
+ .sidebar-menu ul{
+    margin-bottom: 1.5rem;
+ }
+ .menu-menu{
+    border-top: 1px solid white !important;
+    border-bottom: 1px solid white !important;
+ }
+
+ .menu-head{
+    border-top: 1px solid white !important;
+    border-bottom: 1px solid white !important;
+    border-left: 1px solid white !important;
+    border-right: 1px solid white !important;
+    padding-left: 10px;
+ }
+ .sidebar-menu li{
+    margin-bottom: .8rem;
+   
+ }
+ .sidebar-menu li a{
+    color: #efefef;
+     font-size: .9rem;
+    display: flex;
+    align-items: center;
+ }
+ .fas fa-laugh-wink{
+     color: #fff;
+ }
+ .sidebar-menu li a span{
+     font-size: 30px;
+    display: inline-block;
+ }
+ .dropdown-btn{
+    font-size: 25px !important;
+    display: inline-block !important; 
+    padding-bottom:10px ;
+    padding-top: 10px;
+    color: #fff;
+}
+.sib{
+    font-size: 25px !important;
+    display: inline-block !important; 
+    padding-bottom:10px ;
+    color: #fff;
+}
+ .sg{
+    border-bottom:1px solid white !important ;
+ }
+ .brand-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+ .brand-icons span{
+    font-size: 1.5rem;
+    margin-left: .5rem;
+}
+.main-content{
+    margin-left: 280px;
+transition: margin-left 300ms;
+}
+main{
+    background: #f1f5f9;
+    min-height: calc(100vh-70px);
+}
+.input-group-append {
+    cursor: pointer;
+  }
+ 
+header{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #301934;
+}
+.bars{
+    padding:0 10px;
+}
+.sidebar ul li a{
+ position: relative;
+ color: white;
+ text-decoration: none;
+ font-size: 18px;
+ font-weight: 500;
+ display: block;
+ width: 100%;
+ border-left: 3px solid transparent;
+}
+.sidebar ul li a span{
+    top: 50%;
+    font-size: 22px;
+    transition: transform 0.4s;
+  }
+.sidebar ul li a:hover span{
+    transform: translateY(-50%) rotate(-180deg);
+  }
+.sidebar ul li a:hover{
+    color: cyan;
+}
+.sidebar ul ul{
+    position: static;
+    display: none;
+  }
+  .sidebar ul ul li{
+    line-height: 30px;
+    border-bottom: none;
+  }
+  .sidebar ul ul li a{
+    font-size: 17px;
+    color: #e6e6e6;
+    padding-left: 40px;
+  }
+  .sidebar ul .feat-show.show{
+    display: block;
+  }
+  .login__submit {
+	background: #fff;
+	font-size: 14px;
+	margin-top: 30px;
+	padding: 16px 20px;
+	border-radius: 10px;
+	border: 1px solid black;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	box-shadow: 0px 2px 2px ;
+	cursor: pointer;
+	transition: .2s;
+  width: 100px;
+  margin-left: 330px;
+}
+.contain{
+    padding-left: 300px !important;
+    padding-top: 100px !important;
+}
+body{
+    background-color:#f1f5f9 ;
+}
+.sam{
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+  }
+ 
+  /* Links inside the navbar */
+ 

@@ -1,0 +1,40 @@
+header{
+    height: 50px;
+    display: flex;
+   justify-content: space-between;
+    align-items: center;
+    background: #301934;
+}
+main{
+	align-items: center;
+	background: #f1f5f9;
+	width:auto;
+	margin:0px;
+	padding: 10px 0px 0px 300px !important;
+
+}
+body{
+	background: #f1f5f9;
+}
+.bars{
+    padding:0 10px;
+}
+
+
+.login__submit {
+	background: #fff;
+	font-size: 14px;
+	margin-top: 30px;
+	padding: 16px 20px;
+	border-radius: 10px;
+	border: 1px solid black;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	box-shadow: 0px 2px 2px ;
+	cursor: pointer;
+	transition: .2s;
+  width: 100px;
+  margin-left: 400px;
+}

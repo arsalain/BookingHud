@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" <link
+    rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="/assets/css/admin.css">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js "></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+</head>
+
+<body>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('.dropdown-btn').click(function () {
+        $(this).next('.dropdown-container').slideToggle();
+      });
+    });
+  </script>
+  <input type="checkbox" name="" id="sidebar-toggle">
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-main">
+        <div class="sidebar-user">
+          <div class="sidebar-brand-icon rotate-n-15">
+            <i class="bi bi-emoji-laughing" style="font-size:31px"><span class="ad">SB Admin </span></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-menu">
+      <div class="menu-head">
+        <span>Facilitators</span>
+      </div>
+      <ul>
+        <li>
+          <a href="#" class="dropdown-btn"> <i class="bi bi-journal" style="color:white"></i>
+            New Booking
+            <span> <i class="bi bi-caret-down-fill"></i></span>
+          </a>
+          <ul class="dropdown-container">
+            <li> <a href="/login">Dash</a></li>
+            <li><a href="/add">Add Booking</a></li>
+            <li><a href="/update1">Confirmation</a></li>
+            <li><a href="/getroom">Add Room</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="dropdown-btn"> <i class="bi bi-person-plus" style="color:white"></i>
+            User
+            <span> <i class="bi bi-caret-down-fill"></i></span>
+          </a>
+          <ul class="dropdown-container">
+            <li> <a href="/add_user" >
+                Add User
+              </a></li>
+            <li><a href="/View_user">View User</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <header>
+      <div class="menu-toggle">
+        <label for="sidebar-toggle">
+          <span class="bars" style="color:white "><i class="bi bi-list"></i>Booking System</span>|
+        </label>
+      </div>
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-person-circle" style="color:white "></i>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#myModal">Change
+              Password</a>
+          <li><a class="dropdown-item" href="/logout">Logout</a></li>
+        </ul>
+      </div>
+
+    </header>
+    <% if(locals.mess) { %>
+      <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+        <strong>Incorrect Old password</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <% }else if (locals.cad) { %>
+        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+          <strong>Password Updated Successfully..</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <% } %>
+          <div class="container mt-5">
+            <div class="modal" id="myModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Change Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                  </div>
+                  <form action="/change" method="post" class="changePassword">
+
+                    <div class="modal-body">
+
+                      <div class="mb-3">
+                        <label class="form-label required">Old Password</label>
+                        <input type="text" class="form-control" name="oldpassword">
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label required">New Password</label>
+                        <input type="text" class="form-control" name="newpassword">
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label required">Confirm Password</label>
+                        <input type="test" class="form-control" name="confirmpassword">
+                      </div>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+          <!-- partial:partials/_sidebar.html -->
+
+          <main>
+            <form action="" method="POST">
+              <div class="col-sm-6 col-md-12">
+                <div class="form-group form-focus">
+                  <label class="focus-label" height=""></label>
+                  <input type="text" class="form-control floating" name="search" placeholder="">
+
+                  <button formaction="/search_all" type="submit" class="btn btn-success">Search</button>
+                </div>
+              </div>
+            </form>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="table-responsive">
+                  <table class="table table-striped custom-table">
+                    <thead>
+                      <tr class="sam">
+                        <th>Type</th>
+                        <th>Start Date</th>
+
+                        <th>End Date</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Reason</th>
+                        <th>Status</th>
+                        <th>Action</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% for (var i=0; i < list.length; i++){ %>
+                        <tr>
+                          <td>
+                            <%= list[i].type %>
+                          </td>
+                          <td>
+                            <%= list[i].start_date %>
+                          </td>
+                          <td>
+                            <%= list[i].end_date %>
+                          </td>
+                          <td>
+                            <%= list[i].start_time %>
+                          </td>
+                          <td>
+                            <%= list[i].end_time %>
+                          </td>
+                          <td>
+                            <%= list[i].reason %>
+                          </td>
+                          <td>
+                            <%= list[i].status %>
+                          </td>
+                          <td> <a href="edit_book/<%= list[i].id %>" type="button" class="btn btn-light btn-small"><i
+                                class="bi bi-pencil"></i>
+                              Edit</a>
+                            <a href="delete_book/<%= list[i].id %>" type="button" class="btn btn-light btn-small"><i
+                                class="bi bi-person-x"></i> Delete</a>
+                          </td>
+                          </td>
+                          <% } %>
+
+
+
+                        </tr>
+
+
+
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+  </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container-fluid clearfix">
+      <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright ©
+        ProtonExperts 2022</span>
+    </div>
+    </div>
+  </footer>
+</body>
+
+</html>
